@@ -60,11 +60,11 @@
             this.zedGraph_1 = new ZedGraph.ZedGraphControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btOpenFile = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -73,9 +73,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -87,7 +87,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(816, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(869, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -213,7 +213,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(816, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(869, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -229,7 +229,7 @@
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 427);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(816, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(869, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -245,7 +245,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(816, 378);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(869, 378);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // tabControl1
@@ -257,7 +257,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(610, 372);
+            this.tabControl1.Size = new System.Drawing.Size(663, 372);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -267,7 +267,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(602, 346);
+            this.tabPage1.Size = new System.Drawing.Size(655, 346);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Графики";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -277,9 +277,9 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(375, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(407, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(227, 346);
+            this.dataGridView1.Size = new System.Drawing.Size(248, 346);
             this.dataGridView1.TabIndex = 3;
             // 
             // zedGraph_1
@@ -296,7 +296,7 @@
             this.zedGraph_1.ScrollMinX = 0D;
             this.zedGraph_1.ScrollMinY = 0D;
             this.zedGraph_1.ScrollMinY2 = 0D;
-            this.zedGraph_1.Size = new System.Drawing.Size(369, 346);
+            this.zedGraph_1.Size = new System.Drawing.Size(401, 346);
             this.zedGraph_1.TabIndex = 2;
             this.zedGraph_1.UseExtendedPrintDialog = true;
             this.zedGraph_1.ZoomButtons = System.Windows.Forms.MouseButtons.None;
@@ -320,36 +320,6 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(596, 340);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btOpenFile);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(619, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(194, 372);
-            this.panel1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(69, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btOpenFile
-            // 
-            this.btOpenFile.Location = new System.Drawing.Point(3, 3);
-            this.btOpenFile.Name = "btOpenFile";
-            this.btOpenFile.Size = new System.Drawing.Size(188, 23);
-            this.btOpenFile.TabIndex = 1;
-            this.btOpenFile.Text = "Открыть LAS";
-            this.btOpenFile.UseVisualStyleBackColor = true;
-            this.btOpenFile.Click += new System.EventHandler(this.btOpenFile_Click);
             // 
             // tabPage3
             // 
@@ -378,11 +348,41 @@
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btOpenFile);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(672, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(194, 372);
+            this.panel1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(69, 128);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btOpenFile
+            // 
+            this.btOpenFile.Location = new System.Drawing.Point(3, 3);
+            this.btOpenFile.Name = "btOpenFile";
+            this.btOpenFile.Size = new System.Drawing.Size(188, 23);
+            this.btOpenFile.TabIndex = 1;
+            this.btOpenFile.Text = "Открыть LAS";
+            this.btOpenFile.UseVisualStyleBackColor = true;
+            this.btOpenFile.Click += new System.EventHandler(this.btOpenFile_Click);
+            // 
             // EditGeoChartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 449);
+            this.ClientSize = new System.Drawing.Size(869, 449);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
@@ -400,9 +400,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

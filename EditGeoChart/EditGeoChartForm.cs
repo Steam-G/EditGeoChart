@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace EditGeoChart
         public EditGeoChartForm()
         {
             InitializeComponent();
+            LoadDefaultLas();
         }
         #region События меню
 
@@ -70,6 +72,7 @@ namespace EditGeoChart
             checkColumn.Width = 50;
             checkColumn.ReadOnly = false;
             checkColumn.FillWeight = 10; //if the datagridview is resized (on form resize) the checkbox won't take up too much; value is relative to the other columns' fill values
+
             dgv.Columns.Add(checkColumn);
 
             // Создаем ячейку типа CheckBox
@@ -81,15 +84,19 @@ namespace EditGeoChart
             //c.AutoIncrementSeed = 0;
             //c.AutoIncrementStep = 1;
 
+            table.Columns.Add(new DataColumn("Selected", typeof(bool)));
+            table.Columns.Add(new DataColumn("Text", typeof(string)));
             for (int i = 0; i < reader.CurveInfo_Count; i++)
             {
-                dgv.Rows.Add(table.NewRow());
+                table.Rows.Add(table.NewRow());
 
                 //table.Columns.Add(reader.CurveInfo[i]._name, typeof(string));
-                dgv.Rows[i].Cells[1].Value = (string)reader.CurveInfo[i]._name;
+                //dgv.Rows[i].Cells[1].Value = (string)reader.CurveInfo[i]._name;
+                table.Rows[i][1] = (string)reader.CurveInfo[i]._name;
             }
 
             bindSource.DataSource = dgv;
+            bindSource.DataSource = table;
             dataGrid.DataSource = bindSource;
         }
 
@@ -244,8 +251,23 @@ namespace EditGeoChart
         }
         #endregion
 
-        #region MyRegion
+        #region Для отладки
+        private void LoadDefaultLas()
+        {
+            var appDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);// + "\\logTelLeuza.txt";
 
+            //var baseFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // путь к Моим Документах
+            // или
+            //var baseFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); // путь к папке AppData
+            //var appStorageFolder = Path.Combine(baseFolder, "Имя Вашей Программы");
+
+            var relativePath = @"..\..\assets\las\gti.las";
+            var fullPath = Path.Combine(appDir, relativePath);
+
+            lAS_Reader.LoadFile(fullPath);
+            DrawGraph();
+            PaintTable();
+        }
 
 
         #endregion
