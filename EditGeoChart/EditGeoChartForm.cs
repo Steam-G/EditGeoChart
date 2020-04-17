@@ -84,8 +84,12 @@ namespace EditGeoChart
             //c.AutoIncrementSeed = 0;
             //c.AutoIncrementStep = 1;
 
-            table.Columns.Add(new DataColumn("Selected", typeof(bool)));
-            table.Columns.Add(new DataColumn("Text", typeof(string)));
+            table.Columns.Add(new DataColumn("Selected", typeof(bool))); // колонка с чекбоксом
+            table.Columns.Add(new DataColumn("Text", typeof(string))); // колонка с названиями
+
+            
+
+
             for (int i = 0; i < reader.CurveInfo_Count; i++)
             {
                 table.Rows.Add(table.NewRow());
@@ -249,6 +253,52 @@ namespace EditGeoChart
 
             zedGraph_1.Invalidate();
         }
+
+        private void DrawCheckGraph(int[] ChekedData)
+        {
+            GraphPane pane = zedGraph_1.GraphPane;
+            pane.CurveList.Clear();
+
+            // !!! С помощью этого свойства указываем, что шрифты не надо масштабировать
+            // при изменении размера компонента.
+            pane.IsFontsScaled = false;
+
+            PointPairList list = new PointPairList();
+
+            for (int i=0; i<ChekedData.Length; i++)
+            {
+                list = PointPair(lAS_Reader, ChekedData[i]);
+                pane.AddCurve("Sinc", list, Color.Blue, SymbolType.None);
+            }
+
+            //list = PointPair(lAS_Reader, 3);
+            //LineItem myCurve = pane.AddCurve("Sinc", list, Color.Blue, SymbolType.None);
+
+            //list = PointPair(lAS_Reader, 4);
+            //LineItem myCurve2 = pane.AddCurve("Sinc", list, Color.Red, SymbolType.None);
+
+            // !!!
+            // Теперь линия по нулевому уровню должна быть перпендикулярна оси X
+            pane.XAxis.MajorGrid.IsZeroLine = true;
+
+            // !!!
+            // Линию по нулевому уровню, перпендикулярную оси Y отключаем
+            pane.YAxis.MajorGrid.IsZeroLine = false;
+
+
+            // !!!
+            // Поменяем названия осей, чтобы еще больше запутать противника :)
+            pane.XAxis.Title.Text = "YAxis";
+            pane.YAxis.Title.Text = "XAxis";
+
+            // Вызываем метод AxisChange (), чтобы обновить данные об осях. 
+            // В противном случае на рисунке будет показана только часть графика, 
+            // которая умещается в интервалы по осям, установленные по умолчанию
+            zedGraph_1.AxisChange();
+
+            zedGraph_1.Invalidate();
+        }
+
         #endregion
 
         #region Для отладки
@@ -275,6 +325,12 @@ namespace EditGeoChart
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int[] test = {3, 4, 7, 6, 8, 10 };
+            DrawCheckGraph(test);
         }
     }
 }
