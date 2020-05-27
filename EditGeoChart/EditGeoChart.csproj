@@ -80,6 +80,7 @@
     <Compile Include="EditGeoChartForm.Designer.cs">
       <DependentUpon>EditGeoChartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GraphPropertyManagement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutForm.resx">

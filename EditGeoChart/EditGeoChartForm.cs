@@ -22,8 +22,9 @@ namespace EditGeoChart
         {
             InitializeComponent();
             LoadDefaultLas();
+            GPM.Zgc = zedGraph_1;
         }
-        #region События меню
+        #region События менюi
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -314,6 +315,7 @@ namespace EditGeoChart
             var relativePath = @"..\..\assets\las\gti.las";
             var fullPath = Path.Combine(appDir, relativePath);
 
+            //Считываем лас по указанному пути, теперь у нас есть данные
             lAS_Reader.LoadFile(fullPath);
             DrawGraph();
             PaintTable();
@@ -331,6 +333,87 @@ namespace EditGeoChart
         {
             int[] test = {3, 4, 7, 6, 8, 10 };
             DrawCheckGraph(test);
+        }
+
+
+        GraphPropertyManagement GPM = new GraphPropertyManagement();
+        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            GPM.ZoomIn();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            GPM.ZoomOut();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            GPM.Reset();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (GPM.VerticalLock)
+            GPM.VerticalLock = false;
+            else GPM.VerticalLock = true;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (GPM.HorizontalLock)
+                GPM.HorizontalLock = false;
+            else GPM.HorizontalLock = true;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            GPM.RulerDisplay();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            GPM.GridDisplay();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            GPM.DotDisplay();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            GPM.IsSmooth();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            GPM.AddThikness();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            GPM.ReduceThikness();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                (sender as Button).ForeColor = colorDialog1.Color;
+                button1.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            GPM.BackgroundColor();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            GPM.ChartOrientation();
         }
     }
 }
